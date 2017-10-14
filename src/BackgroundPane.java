@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.io.IOException;
 
 public class BackgroundPane extends JLayeredPane{
     private JComboBox comboBox;
@@ -12,7 +13,7 @@ public class BackgroundPane extends JLayeredPane{
     private String CREATOR = "Creator"; //combo box label
 
     //Panel that holds combo box and comboBoxPanel
-    public BackgroundPane() {
+    public BackgroundPane() throws IOException {
         setLayout(new BorderLayout()); //to put combo box above game/creator panels
 
         //Panel that holds Story GUI and CreatorGUI
