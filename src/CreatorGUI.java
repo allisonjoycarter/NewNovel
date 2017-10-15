@@ -55,7 +55,8 @@ public class CreatorGUI extends JPanel {
             }
             if (e.getSource() == load) {
                 treePane.deserialize();
-                treePane.createList();
+//                treePane.createList();
+//                treePane.createNodeList();
             }
         }
     }

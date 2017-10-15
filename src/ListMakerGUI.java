@@ -2,8 +2,7 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 import java.awt.*;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
+import java.awt.event.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -23,10 +22,9 @@ public class ListMakerGUI extends JPanel{
     private File file;
     private BufferedImage background;
 
-    //choice option buttons. May need more when tree is incorporated
-    //for loop of buttons?
     private JButton button1;
     private JButton button2;
+    private JTextField textField;
 
     public ListMakerGUI() {
         setLayout(new GridBagLayout());
@@ -87,7 +85,7 @@ public class ListMakerGUI extends JPanel{
             @Override
             protected void paintComponent(Graphics g) {
                 if (scrollPane.isAncestorOf(text)) {
-                    g.setColor(new Color(255, 255, 255, 50)); //alter alpha to change transparency
+                    g.setColor(new Color(255, 255, 255, 100)); //alter alpha to change transparency
                     g.fillRect(0, 0, getWidth(), getHeight());
                 }
             }
@@ -107,7 +105,7 @@ public class ListMakerGUI extends JPanel{
         add(scrollPane, constraints);
 
         //constraints for button2, will need to edit later for user to put more than 2 options?
-        button1 = new JButton("Option 1");
+        button1 = new JButton("Create Option 1");
         constraints.fill = GridBagConstraints.HORIZONTAL;
         constraints.weightx = 0.5;
         constraints.ipady = 0;
@@ -115,18 +113,18 @@ public class ListMakerGUI extends JPanel{
         constraints.gridx = 0;
         constraints.gridy = 3;
         constraints.insets = new Insets(0, 5, 5, 2);
-        button1.setEnabled(false);
+        button1.addActionListener(new ButtonListener());
         add(button1, constraints);
 //        button1.addActionListener(buttonListener);
 
-        button2 = new JButton("Option 2");
+        button2 = new JButton("Create Option 2");
         constraints.fill = GridBagConstraints.HORIZONTAL;
         constraints.weightx = 0.5;
         constraints.gridx = 1;
         constraints.gridy = 3;
         constraints.insets = new Insets(0, 3, 5, 5);
         constraints.anchor = GridBagConstraints.PAGE_END;
-        button2.setEnabled(false);
+        button2.addActionListener(new ButtonListener());
         add(button2, constraints);
 //        button2.addActionListener(buttonListener);
 
@@ -135,18 +133,56 @@ public class ListMakerGUI extends JPanel{
         //sets background image
         picture = new JLabel("Set Background Image");
         picture.setPreferredSize(new Dimension(1000, 563));
-        picture.setBorder(new LineBorder(Color.BLACK));
+        picture.setBorder(BorderFactory.createLineBorder(Color.black));
         constraints.fill = GridBagConstraints.HORIZONTAL;
         constraints.weightx = 0.5;
         constraints.gridx = 0;
         constraints.gridy = 1;
-        constraints.ipady = 60;
+//        constraints.ipady = 60;
         constraints.gridwidth = 3;
         constraints.gridheight = 2;
         picture.addMouseListener(new MouseListener());
 //        constraints.insets = new Insets(5, 2, 5, 2);
         add(picture, constraints);
+
     }
+
+    //creates a dialog to confirm editing buttons
+    private void openButtonCreator(JButton button) {
+        int n = JOptionPane.showConfirmDialog(
+                new ListMakerGUI(),
+                "Would you like to set this Option?",
+                "Confirm Option Edit",
+                JOptionPane.YES_NO_OPTION);
+        if (n == JOptionPane.YES_OPTION) {
+
+            //adds a textfield to button and sets the button text to textfield text when enter is pressed
+            textField = new JTextField(30);
+            button.setText("");
+            button.add(textField);
+            textField.addKeyListener(new KeyAdapter() {
+                @Override
+                public void keyPressed(KeyEvent e) {
+                    if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+                        button.setText(textField.getText());
+                        textField.setText("");
+                        button.remove(textField);
+                    }
+                }
+            });
+        }
+    }
+
+    public class ButtonListener implements ActionListener {
+        public void actionPerformed(ActionEvent e) {
+            if (e.getSource() == button1) {
+                openButtonCreator(button1);
+            } else if (e.getSource() == button2){
+                openButtonCreator(button2);
+            }
+        }
+    }
+
     public class MouseListener implements java.awt.event.MouseListener {
         @Override
         public void mouseClicked(MouseEvent e) {
