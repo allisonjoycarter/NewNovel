@@ -22,7 +22,7 @@ public class BackgroundPane extends JLayeredPane{
 
         //adding GUI's to comboBoxPanel
         storyGUI = new StoryGUI();
-        creatorGUI = new CreatorGUI();
+        creatorGUI = new ListMakerGUI();
         comboBoxPanel.add(storyGUI, GAME);
         comboBoxPanel.add(creatorGUI, CREATOR);
 

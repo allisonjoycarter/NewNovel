@@ -1,12 +1,16 @@
+import jdk.nashorn.api.tree.Tree;
+
 import javax.swing.*;
 import javax.swing.event.TreeModelEvent;
 import javax.swing.tree.*;
 import java.io.*;
+import java.util.*;
 
 public class TreePane extends JScrollPane implements Serializable {
     protected DefaultMutableTreeNode rootNode;
     protected DefaultTreeModel treeModel;
     protected JTree tree;
+    private ArrayList<Object> nodeList;
     private File serializedFile;
 
     //making this class a scroll pane was the easiest way to implement dynamic structure changes
@@ -22,8 +26,11 @@ public class TreePane extends JScrollPane implements Serializable {
         tree.setEditable(true);
         tree.getSelectionModel().setSelectionMode(TreeSelectionModel.SINGLE_TREE_SELECTION);
         tree.setShowsRootHandles(true);
+        tree.setRootVisible(false);
 
         setViewportView(tree); //puts tree in scrollpane
+
+        nodeList = new ArrayList<>();
     }
     //removes all child nodes from the root node
     //sets tree back to one node (root)
@@ -83,22 +90,25 @@ public class TreePane extends JScrollPane implements Serializable {
             DefaultMutableTreeNode node;
 
             node = (DefaultMutableTreeNode) (e.getTreePath().getLastPathComponent());
-            if(node != rootNode) {
+//            if(node != rootNode) {
                 int index = e.getChildIndices()[0];
                 node = (DefaultMutableTreeNode) (node.getChildAt(index));
-            }
+//            }
             System.out.println("Finished editing node.");
             System.out.println("New value: " + node.getUserObject());
         }
 
         @Override
         public void treeNodesInserted(TreeModelEvent e) {
-
+            DefaultMutableTreeNode node;
+            node = (DefaultMutableTreeNode)(e.getTreePath().getLastPathComponent());
+//            nodeList.add(node);
         }
 
         @Override
         public void treeNodesRemoved(TreeModelEvent e) {
-
+            DefaultMutableTreeNode node;
+            node = (DefaultMutableTreeNode)(e.getTreePath().getLastPathComponent());
         }
 
         @Override
@@ -144,5 +154,51 @@ public class TreePane extends JScrollPane implements Serializable {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public void createList() {
+
+        DefaultMutableTreeNode root = (DefaultMutableTreeNode)tree.getModel().getRoot();
+        TreeNode child = root.getFirstChild();
+        Enumeration e = root.preorderEnumeration();
+        nodeList = Collections.list(e);
+        LinkedHashMap<Object, String> nodeMap = new LinkedHashMap<>();
+        nodeMap.clear();
+
+        while(e.hasMoreElements()){
+            System.out.println(e.nextElement());
+        }
+
+        for (int i = 0; i < nodeList.size(); i++) {
+            System.out.println(nodeList.get(i));
+        }
+
+        System.out.println(nodeList.size());
+        System.out.println(nodeMap.keySet());
+        System.out.println(nodeMap.values());
+    }
+
+    public ArrayList<Object> getNodeList() {
+        return nodeList;
+    }
+
+    public void setNodeList(ArrayList<Object> nodeList) {
+        this.nodeList = nodeList;
+    }
+
+    public DefaultMutableTreeNode getRootNode() {
+        return rootNode;
+    }
+
+    public void setRootNode(DefaultMutableTreeNode rootNode) {
+        this.rootNode = rootNode;
+    }
+
+    public DefaultTreeModel getTreeModel() {
+        return treeModel;
+    }
+
+    public void setTreeModel(DefaultTreeModel treeModel) {
+        this.treeModel = treeModel;
     }
 }
