@@ -18,7 +18,6 @@ public class StoryGUI extends JPanel {
     private JButton forward;
     private BufferedImage background = ImageIO.read(getClass().getResourceAsStream("mountains1.png"));
 
-
     //choice option buttons. May need more when tree is incorporated
     //for loop of buttons?
     private JButton button1;
@@ -27,8 +26,8 @@ public class StoryGUI extends JPanel {
     public StoryGUI() throws IOException {
         setLayout(new GridBagLayout());
         GridBagConstraints constraints = new GridBagConstraints();
-        text = new JTextArea(5, 30);
 
+        text = new JTextArea(5, 30);
         text.setOpaque(false);
         text.setEditable(false);
         text.setLineWrap(true);
@@ -38,6 +37,7 @@ public class StoryGUI extends JPanel {
 //        text.addKeyListener(keyListener);
 //        text.addMouseListener(mouseListener);
 
+        //sets up the menuBar
         restart = new JMenuItem("Restart");
         quit = new JMenuItem("Quit");
         save = new JMenuItem("Save");
@@ -49,23 +49,27 @@ public class StoryGUI extends JPanel {
         menu.add(save);
         menu.add(load);
         menuBar.add(menu);
-        menuBar.setSize(new Dimension(50, 28));
 
+        //constraints for the menuBar
+        //wanted to put menuBar in northwest position but couldn't get back/forward to fill the empty space
+        //weight, anchors, and fills did not solve this problem
         constraints.fill = GridBagConstraints.NORTHEAST;
-        constraints.weightx = 0;
+        constraints.weightx = 0; //no weight so it doesn't take up extra space
         constraints.gridx = 2;
         constraints.gridy = 0;
-        constraints.anchor = GridBagConstraints.NORTHEAST;
-        menuBar.setPreferredSize(new Dimension(42, 27));
+        constraints.anchor = GridBagConstraints.NORTHEAST; //keeps menuBar in the northeast position
+        menuBar.setPreferredSize(new Dimension(42, 27)); //roughly the same height as the other buttons
         add(menuBar, constraints);
 
+        //constraints for the back button
         back = new JButton("Back");
-        constraints.fill = GridBagConstraints.HORIZONTAL;
-        constraints.weightx = 10;
+        constraints.fill = GridBagConstraints.HORIZONTAL; //fills up available horizontal space
+        constraints.weightx = 10; //lots of weight so it takes up menuBar's space
         constraints.gridx = 0;
         constraints.gridy = 0;
         add(back, constraints);
 
+        //constraints for the forward button
         forward = new JButton("Forward");
         constraints.fill = GridBagConstraints.HORIZONTAL;
         constraints.weightx = 10;
@@ -73,30 +77,31 @@ public class StoryGUI extends JPanel {
         constraints.gridy = 0;
         add(forward, constraints);
 
-
+        //makes scrollPane (also the text area) appear slightly transparent
         scrollPane = new JScrollPane(text) {
             @Override
             protected void paintComponent(Graphics g) {
                 if (scrollPane.isAncestorOf(text)) {
-                    g.setColor(new Color(255, 255, 255, 50));
+                    g.setColor(new Color(255, 255, 255, 50)); //alter alpha to change transparency
                     g.fillRect(0, 0, getWidth(), getHeight());
                 }
             }
         };
         constraints.fill = GridBagConstraints.HORIZONTAL;
-        constraints.anchor = GridBagConstraints.PAGE_END;
-        constraints.ipady = 30;
+        constraints.anchor = GridBagConstraints.PAGE_END; //keeps text area at the bottom
+        constraints.ipady = 30; //adds size to the scroll pane
         constraints.weightx = 0;
         constraints.gridwidth = 3;
         constraints.gridx = 0;
         constraints.gridy = 2;
-        constraints.insets = new Insets(10, 5, 10, 5);
-        scrollPane.getViewport().setOpaque(false);
+        constraints.insets = new Insets(20, 20, 50, 20); //adds space around scroll pane
+        scrollPane.getViewport().setOpaque(false); //makes scroll pane actually transparent
         scrollPane.setOpaque(false);
         scrollPane.setViewportBorder(null);
         scrollPane.setBorder(null);
         add(scrollPane, constraints);
 
+        //constraints for button2, will need to edit later for user to put more than 2 options?
         button1 = new JButton("Option 1");
         constraints.fill = GridBagConstraints.HORIZONTAL;
         constraints.weightx = 0.5;
@@ -120,6 +125,7 @@ public class StoryGUI extends JPanel {
         add(button2, constraints);
 //        button2.addActionListener(buttonListener);
 
+        //sets background image
         picture = new JLabel(new ImageIcon(background));
         constraints.fill = GridBagConstraints.HORIZONTAL;
         constraints.weightx = 0.5;

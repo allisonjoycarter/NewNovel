@@ -8,8 +8,6 @@ public class CreatorGUI extends JPanel {
     private JPanel toolbar;
     private JButton newItem;
     private JButton deleteItem;
-    private JButton moveUp;
-    private JButton moveDown;
     private JButton startOver;
     private JButton save;
     private JButton load;
@@ -17,19 +15,16 @@ public class CreatorGUI extends JPanel {
     public CreatorGUI() {
         setLayout(new BorderLayout());
 
+        //made a BoxLayout for the buttons so they would line up properly along the top
         toolbar = new JPanel();
         toolbar.setLayout(new BoxLayout(toolbar, BoxLayout.X_AXIS));
         newItem = new JButton("Add Item");
         deleteItem = new JButton("Delete Item");
-        moveUp = new JButton("Move Item Up");
-        moveDown = new JButton("Move Item Down");
         startOver = new JButton("Start Over");
         save = new JButton("Save Game");
         load = new JButton("Load Game");
         newItem.addActionListener(new ButtonListener());
         deleteItem.addActionListener(new ButtonListener());
-        moveUp.addActionListener(new ButtonListener());
-        moveDown.addActionListener(new ButtonListener());
         startOver.addActionListener(new ButtonListener());
         save.addActionListener(new ButtonListener());
         load.addActionListener(new ButtonListener());
@@ -40,10 +35,13 @@ public class CreatorGUI extends JPanel {
         toolbar.add(load);
         add(toolbar, BorderLayout.NORTH);
 
+        //adding tree to panel
         treePane = new TreePane();
         add(treePane, BorderLayout.CENTER);
 
     }
+    //simply calling methods from TreePane
+    //looks so clean :D
     class ButtonListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             if (e.getSource() == newItem) {

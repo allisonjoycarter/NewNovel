@@ -9,6 +9,7 @@ public class TreePane extends JScrollPane implements Serializable {
     protected JTree tree;
     private File serializedFile;
 
+    //making this class a scroll pane was the easiest way to implement dynamic structure changes
     public TreePane() {
         //tree model starts out null so it can be deserialized later
         treeModel = null;
@@ -22,11 +23,12 @@ public class TreePane extends JScrollPane implements Serializable {
         tree.getSelectionModel().setSelectionMode(TreeSelectionModel.SINGLE_TREE_SELECTION);
         tree.setShowsRootHandles(true);
 
-        setViewportView(tree);
+        setViewportView(tree); //puts tree in scrollpane
     }
     //removes all child nodes from the root node
     //sets tree back to one node (root)
     public void clear() {
+        rootNode.setUserObject("Set Name"); //changes name of node
         rootNode.removeAllChildren();
         treeModel.reload(); //you would think that if this works, deserialization would work by just reloading
     }
@@ -105,6 +107,7 @@ public class TreePane extends JScrollPane implements Serializable {
         }
     }
 
+    //allows user to save tree structures
     public void serialize() {
         try {
             JFileChooser fileChooser = new JFileChooser();
@@ -121,6 +124,7 @@ public class TreePane extends JScrollPane implements Serializable {
         }
     }
 
+    //loads saved tree structures
     public void deserialize() {
         try {
             JFileChooser fileChooser = new JFileChooser();
@@ -130,8 +134,11 @@ public class TreePane extends JScrollPane implements Serializable {
                 FileInputStream file = new FileInputStream(serializedFile);
                 ObjectInputStream inputStream = new ObjectInputStream(file);
                 treeModel = (DefaultTreeModel) inputStream.readObject();
-                treeModel.reload();
-                tree.setModel(treeModel);
+
+                //these make the deserialized tree appear
+                treeModel.reload(); //refreshes tree model
+                tree.setModel(treeModel); //puts new tree model into the tree
+
                 inputStream.close();
             }
         } catch (Exception e) {

@@ -2,15 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c739316e-8d20-45f8-861c-6c701c431726" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/mountains1.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/NewNovel/BackgroundPane$1.class" afterPath="$PROJECT_DIR$/out/production/NewNovel/BackgroundPane$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/NewNovel/BackgroundPane.class" afterPath="$PROJECT_DIR$/out/production/NewNovel/BackgroundPane.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/NewNovel/CreatorGUI$ButtonListener.class" afterPath="$PROJECT_DIR$/out/production/NewNovel/CreatorGUI$ButtonListener.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/NewNovel/CreatorGUI.class" afterPath="$PROJECT_DIR$/out/production/NewNovel/CreatorGUI.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/NewNovel/StoryGUI$1.class" afterPath="$PROJECT_DIR$/out/production/NewNovel/StoryGUI$1.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/NewNovel/StoryGUI.class" afterPath="$PROJECT_DIR$/out/production/NewNovel/StoryGUI.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/NewNovel/main.class" afterPath="$PROJECT_DIR$/out/production/NewNovel/main.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/NewNovel/TreePane$TreeModelListener.class" afterPath="$PROJECT_DIR$/out/production/NewNovel/TreePane$TreeModelListener.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/NewNovel/TreePane.class" afterPath="$PROJECT_DIR$/out/production/NewNovel/TreePane.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/BackgroundPane.java" afterPath="$PROJECT_DIR$/src/BackgroundPane.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/CreatorGUI.java" afterPath="$PROJECT_DIR$/src/CreatorGUI.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/StoryGUI.java" afterPath="$PROJECT_DIR$/src/StoryGUI.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main.java" afterPath="$PROJECT_DIR$/src/main.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/TreePane.java" afterPath="$PROJECT_DIR$/src/TreePane.java" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -24,8 +25,8 @@
       <file leaf-file-name="main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="36" lean-forward="false" selection-start-line="9" selection-start-column="36" selection-end-line="9" selection-end-column="36" />
+            <state relative-caret-position="102">
+              <caret line="6" column="59" lean-forward="true" selection-start-line="6" selection-start-column="59" selection-end-line="6" selection-end-column="59" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -33,7 +34,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BackgroundPane.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="BackgroundPane.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/BackgroundPane.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="374">
@@ -45,11 +46,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="StoryGUI.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="StoryGUI.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/StoryGUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="58" column="53" lean-forward="false" selection-start-line="58" selection-start-column="53" selection-end-line="58" selection-end-column="53" />
+            <state relative-caret-position="476">
+              <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -60,8 +61,8 @@
       <file leaf-file-name="CreatorGUI.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/CreatorGUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="25" lean-forward="false" selection-start-line="14" selection-start-column="25" selection-end-line="14" selection-end-column="25" />
+            <state relative-caret-position="204">
+              <caret line="39" column="43" lean-forward="true" selection-start-line="39" selection-start-column="43" selection-end-line="39" selection-end-column="43" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -72,8 +73,8 @@
       <file leaf-file-name="TreePane.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/TreePane.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-986">
-              <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+            <state relative-caret-position="1057">
+              <caret line="138" column="49" lean-forward="true" selection-start-line="138" selection-start-column="49" selection-end-line="138" selection-end-column="49" />
               <folding />
             </state>
           </provider>
@@ -99,10 +100,11 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/CreatorGUI.java" />
         <option value="$PROJECT_DIR$/src/BackgroundPane.java" />
         <option value="$PROJECT_DIR$/src/main.java" />
         <option value="$PROJECT_DIR$/src/StoryGUI.java" />
+        <option value="$PROJECT_DIR$/src/CreatorGUI.java" />
+        <option value="$PROJECT_DIR$/src/TreePane.java" />
       </list>
     </option>
   </component>
@@ -334,10 +336,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/StoryGUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/CreatorGUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="25" lean-forward="false" selection-start-line="14" selection-start-column="25" selection-end-line="14" selection-end-column="25" />
+        <state relative-caret-position="204">
+          <caret line="39" column="43" lean-forward="true" selection-start-line="39" selection-start-column="43" selection-end-line="39" selection-end-column="43" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -346,16 +358,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/TreePane.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-986">
-          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        <state relative-caret-position="1057">
+          <caret line="138" column="49" lean-forward="true" selection-start-line="138" selection-start-column="49" selection-end-line="138" selection-end-column="49" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="36" lean-forward="false" selection-start-line="9" selection-start-column="36" selection-end-line="9" selection-end-column="36" />
+        <state relative-caret-position="102">
+          <caret line="6" column="59" lean-forward="true" selection-start-line="6" selection-start-column="59" selection-end-line="6" selection-end-column="59" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -366,16 +378,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
           <caret line="23" column="19" lean-forward="false" selection-start-line="23" selection-start-column="19" selection-end-line="23" selection-end-column="19" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/StoryGUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="58" column="53" lean-forward="false" selection-start-line="58" selection-start-column="53" selection-end-line="58" selection-end-column="53" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
